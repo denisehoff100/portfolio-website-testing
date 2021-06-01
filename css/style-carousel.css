@@ -23,6 +23,18 @@ body {
   color: #4a4a4a;
 }
 
+div.wobble {
+  cursor: pointer;
+  margin: auto;
+  font-size: 5vmin;
+  font-weight: 300;
+  transition: font-weight 250ms ease-in-out;
+}
+
+div.wobble:hover {
+  font-weight: 900;
+}
+
 .colorbar.row {
   background: #fffffa;
   opacity: 0.8;

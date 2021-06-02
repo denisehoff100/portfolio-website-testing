@@ -22,7 +22,9 @@ body {
   /* Sets the line-height to 1.6 * the font-size */
   color: #4a4a4a;
 }
-
+.bullet {
+  padding-left: 40px;
+}
 .colorbar.row {
   background: #fffffa;
   opacity: 0.8;
@@ -37,6 +39,10 @@ p {
   margin-top: 0px;
 }
 
+p.textspaceabove {
+  margin-top: 10px;
+}
+
 footer {
   background: #4A4A4A;
   padding: 8px 0;
@@ -48,14 +54,14 @@ footer {
 }
 
 .copyright {
-  font-size: .6em;
+  font-size: .7em;
   align-content: center;
   color: white;
 }
 
 h1, h2, h3, h4 {
   line-height: 1.4;
-  margin-top: 0px;
+  margin-top: 15px;
   font-family: 'Roboto Slab', serif;
 }
 
@@ -89,22 +95,26 @@ h2.space {
 }
 
 h3 {
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: 500;
   margin-top: 0;
 }
-
-h4 {
+h3.space {
   font-size: 1em;
+  font-weight: 500;
+  padding: 12px 0px 0px;
+}
+h4 {
+  font-size: .8em;
   font-weight: 300;
 }
 
 h5 {
-  font-size: 1em;
+  font-size: .8em;
 }
 
 h6 {
-  font-size: .8em;
+  font-size: .6em;
   font-weight: 100;
 }
 
@@ -194,6 +204,14 @@ a:focus {
   color: #4a4a4a;
 }
 
+.social-icons:visited {
+  color: #4a4a4a;
+}
+
+.social-icons:hover {
+  color: #DF4C73;
+}
+
 nav>ul>li>a:hover {
   color: #DF4C73;
   text-decoration: none;
@@ -253,7 +271,7 @@ nav>ul>li>a:active {
   display: inline-block;
   width: 40px;
   padding-top: 10px;
-  padding-right: 10px
+  padding-right: 10px;
   color: white;
 }
 
@@ -280,10 +298,29 @@ nav>ul>li>a:active {
 
 .parent {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 8px;
+  grid-row-gap: 2px;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.div3 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.div4 {
+  grid-area: 2 / 2 / 3 / 3;
+}
+.div5 {
+  grid-area: 3 / 1 / 4 / 2;
+}
+.div6 {
+  grid-area: 3 / 2 / 4 / 3;
 }
 
 #work .row {
@@ -305,6 +342,16 @@ nav>ul>li>a:active {
 .logo-link {
   display: block;
   margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.col-center {
+  float: none;
+  margin: 0 auto;
+  padding: 0;
 }
 
 /* header */
@@ -391,6 +438,8 @@ main {
   max-width: 500px;
 }
 
+
+
 /*Projects Styles
 ================================= */
 .animation-border {
@@ -400,7 +449,6 @@ main {
 }
 
 /* START gently uncovering */
-
 .image {
   height: 60vh;
   display: flex;
@@ -418,13 +466,14 @@ main {
     opacity: 0%;
     width: 0%;
   }
+
   to {
     opacity: 100%;
     width: 100%;
   }
 }
-/* end photo uncovering */
 
+/* end photo uncovering */
 /* ==============================
 Small devices (640px and smaller)
 ================================= */
@@ -440,12 +489,13 @@ Small devices (640px and smaller)
     box-shadow: 0px 0px 0px 0px rgba(25, 25, 25, 0.05);
     padding: 4px 0px 0px;
     height: 4px;
-}
+  }
 
-.rule {
-  height: 4px;
-  margin: -4px -20px 20px -20px;
-}
+  .rule {
+    height: 4px;
+    margin: -4px -20px 20px -20px;
+  }
+
   main {
     padding-top: 15px;
   }
@@ -453,18 +503,6 @@ Small devices (640px and smaller)
   .row {
     margin: 0px;
     /* 45px top and bottom, 0 left and right */
-  }
-
-  .parent {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 15px;
-    grid-row-gap: 15px;
-  }
-
-  .div1 {
-    grid-area: 1 / 1 / 3 / 3;
   }
 
   .colorbar.row {
@@ -492,16 +530,24 @@ Small devices (640px and smaller)
     font-size: 12px;
   }
 
-  .col-center {
-    float: none;
-    margin: 0 auto;
-    padding: 0;
-    text-align: center;
-  }
-
   .col-md-6 {
     width: 50%;
   }
+
+  .parent {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 8px;
+  }
+
+  .div1 { grid-area: 1 / 1 / 2 / 2; }
+  .div2 { grid-area: 2 / 1 / 3 / 2; }
+  .div3 { grid-area: 3 / 1 / 4 / 2; }
+  .div4 { grid-area: 4 / 1 / 5 / 2; }
+  .div5 { grid-area: 5 / 1 / 6 / 2; }
+  .div6 { grid-area: 6 / 1 / 7 / 2; }
 }
 
 /* ==============================
@@ -560,10 +606,12 @@ Medium devices (640px and larger)
     font-size: 18px;
     /* Sets the font size to 18px */
   }
+
   .rule {
     height: 6px;
     margin: -10px -20px 20px -20px;
   }
+
   #about-page h3 {
     margin-top: 0;
   }
@@ -581,21 +629,12 @@ Medium devices (640px and larger)
     float: none;
     margin: 0 auto;
     padding: 0;
-    text-align: center;
   }
 
   h1.logo {
     font-size: 4em;
     font-weight: 200;
     margin-bottom: 0;
-  }
-
-  .parent {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 15px;
-    grid-row-gap: 15px;
   }
 }
 
@@ -640,9 +679,7 @@ Large devices (1024px or larger)
 /* ==============================
 X-large devices (1440px or larger)
 ================================= */
-@media only screen and (min-width: 1440px) {
-
-}
+@media only screen and (min-width: 1440px) {}
 
 /* code pen neo blob */
 *,
@@ -1008,8 +1045,6 @@ input {
 }
 
 /*START icons*/
-
-
 * {
   margin: 0;
   padding: 0;
@@ -1109,4 +1144,5 @@ input {
   background-color: #3b5999;
   color: #ffffff;
 }
+
 /* END icons */

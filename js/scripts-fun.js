@@ -8,158 +8,62 @@ function menuToggle() {
   }
 }
 
-document.querySelectorAll('.button').forEach(elem => {
-
-  const canvas = elem.querySelector('.button__canvas');
-  const ctx = canvas.getContext('2d');
-
-  const offset = 32;
-  const background = '#eef';
-  const foreground = '#7551e9';
-
-  let points = [];
-  let position;
-
-  const distance = new Ola({
-    value: offset });
 
 
-  const size = () => {
+gsap.registerPlugin(ScrollTrigger);
 
-    canvas.width = canvas.getBoundingClientRect().width;
-    canvas.height = canvas.getBoundingClientRect().height;
+const pageContainer = document.querySelector(".container");
 
-    position = new Ola({
-      x: canvas.width / 2,
-      y: canvas.height / 2 });
+/* SMOOTH SCROLL */
+const scroller = new LocomotiveScroll({
+  el: pageContainer,
+  smooth: true
+});
 
+scroller.on("scroll", ScrollTrigger.update);
 
-    const pixelsWidth = canvas.width - offset * 2;
-    const pixelsHeight = canvas.height - offset * 2;
+ScrollTrigger.scrollerProxy(pageContainer, {
+  scrollTop(value) {
+    return arguments.length
+      ? scroller.scrollTo(value, 0, 0)
+      : scroller.scroll.instance.scroll.y;
+  },
+  getBoundingClientRect() {
+    return {
+      left: 0,
+      top: 0,
+      width: window.innerWidth,
+      height: window.innerHeight
+    };
+  },
+  pinType: pageContainer.style.transform ? "transform" : "fixed"
+});
 
-    const leftTop = [offset, offset];
-    const rightTop = [canvas.width - offset, offset];
-    const rightBottom = [canvas.width - offset, canvas.height - offset];
-    const leftBottom = [offset, canvas.height - offset];
+////////////////////////////////////
+////////////////////////////////////
+window.addEventListener("load", function () {
+  let pinBoxes = document.querySelectorAll(".pin-wrap > *");
+  let pinWrap = document.querySelector(".pin-wrap");
+  let pinWrapWidth = pinWrap.offsetWidth;
+  let horizontalScrollLength = pinWrapWidth - window.innerWidth;
 
-    points = [];
+  // Pinning and horizontal scrolling
 
-    Array(pixelsWidth).fill().forEach((_, index) => {
-      points.push([
-      leftTop[0] + index,
-      leftTop[1]]);
+  gsap.to(".pin-wrap", {
+    scrollTrigger: {
+      scroller: pageContainer, //locomotive-scroll
+      scrub: true,
+      trigger: "#sectionPin",
+      pin: true,
+      // anticipatePin: 1,
+      start: "top top",
+      end: pinWrapWidth
+    },
+    x: -horizontalScrollLength,
+    ease: "none"
+  });
 
-    });
+  ScrollTrigger.addEventListener("refresh", () => scroller.update()); //locomotive-scroll
 
-    Array(pixelsHeight).fill().forEach((_, index) => {
-      points.push([
-      rightTop[0],
-      rightTop[1] + index]);
-
-    });
-
-    Array(pixelsWidth).fill().forEach((_, index) => {
-      points.push([
-      rightBottom[0] - index,
-      rightBottom[1]]);
-
-    });
-
-    Array(pixelsHeight).fill().forEach((_, index) => {
-      points.push([
-      leftBottom[0],
-      leftBottom[1] - index]);
-
-    });
-
-  };
-
-  size();
-
-  const reset = () => {
-
-    ctx.fillStyle = background;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  };
-
-  const draw = () => {
-
-    ctx.fillStyle = foreground;
-    ctx.beginPath();
-
-    points.forEach((point, index) => {
-
-      const [vx, vy] = attract(point);
-
-      if (index === 0) ctx.moveTo(vx, vy);else
-      ctx.lineTo(vx, vy);
-
-    });
-
-    ctx.closePath();
-    ctx.fill();
-
-  };
-
-  const attract = point => {
-
-    const [x, y] = point;
-
-    const dx = x - position.x;
-    const dy = y - position.y;
-
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    const dist2 = Math.max(1, dist);
-
-    const d = Math.min(dist2, Math.max(12, dist2 / 4 - dist2));
-    const D = dist2 * distance.value;
-
-    return [
-    x + d / D * (position.x - x),
-    y + d / D * (position.y - y)];
-
-
-  };
-
-  const loop = () => {
-    reset();
-    draw();
-    requestAnimationFrame(loop);
-  };
-
-  window.onresize = size;
-
-  canvas.onmousemove = e => {
-
-    position.set({
-      x: e.clientX - e.target.getBoundingClientRect().left,
-      y: e.clientY - e.target.getBoundingClientRect().top },
-    200);
-
-  };
-
-  canvas.onmouseenter = () => {
-
-    distance.set({
-      value: 1 },
-    200);
-
-  };
-
-  canvas.onmouseleave = () => {
-
-    position.set({
-      x: canvas.width / 2,
-      y: canvas.height / 2 },
-    2000);
-
-    distance.set({
-      value: offset },
-    12000);
-
-  };
-
-  loop();
-
+  ScrollTrigger.refresh();
 });

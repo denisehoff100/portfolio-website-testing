@@ -34,6 +34,15 @@ body {
   position: relative;
   z-index: 3;
 }
+.colorbar-contact.row {
+  background: #fffffa;
+  opacity: 0.8;
+  padding: 3px 0px 30px;
+  margin-top: -130px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 3;
+}
 
 p {
   margin-top: 0px;
@@ -41,6 +50,7 @@ p {
 
 p.textspaceabove {
   margin-top: 10px;
+  line-height: 1.6em;
 }
 
 footer {
@@ -238,7 +248,7 @@ nav>ul>li>a:active {
   display: block;
   width: 100%;
   height: 60px;
-  padding: 20px 0 30px;
+  padding: 20px 0 25px;
   margin: 30px 30px;
   margin-left: 0px;
   color: #4A4A4A;
@@ -277,7 +287,7 @@ nav>ul>li>a:active {
 
 /* Layout styling */
 .container {
-  padding: 0 15px;
+  padding: 0 45px;
 }
 
 .about-photo {
@@ -323,6 +333,26 @@ nav>ul>li>a:active {
   grid-area: 3 / 2 / 4 / 3;
 }
 
+.imagereveal {
+  position: relative;
+}
+.imagereveal .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 1;
+  transition: all 1s;
+}
+.imagereveal .imagebase {
+  opacity: 0;
+}
+.imagereveal:hover .overlay {
+  opacity: 0;
+}
+.imagereveal:hover .imagebase {
+  opacity: 1;
+}
 #work .row {
   padding-bottom: 25px;
   border-bottom: 1px solid #4a4a4a;
@@ -377,8 +407,8 @@ nav>ul {
   position: absolute;
   padding-right: 0;
   right: 0;
-  top: 2px;
-  font-size: 30px;
+  top: -6px;
+  font-size: 28px;
 }
 
 .navtoggle li:not(:last-child) {
@@ -451,7 +481,6 @@ main {
 /* START gently uncovering */
 .image {
   height: 60vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   background: url("../img/welcome/profile-pinkfeather-sm.png");
@@ -502,7 +531,6 @@ Small devices (640px and smaller)
 
   .row {
     margin: 0px;
-    /* 45px top and bottom, 0 left and right */
   }
 
   .colorbar.row {
@@ -533,7 +561,12 @@ Small devices (640px and smaller)
   .col-md-6 {
     width: 50%;
   }
+  .colorbar-contact.row {
+    padding: 0px 0px 30px;
+    margin-top: -200px;
+    margin-bottom: 10px;
 
+  }
   .parent {
   display: grid;
   grid-template-columns: 1fr;

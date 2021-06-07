@@ -11,8 +11,9 @@ background: linear-gradient(to bottom, #FFF7E2, #fcf9f2);
 
 body {
   /*background-color: #faf7e8;
-  background-color: #F9FAF4;*/
-  background-color: #fffffa;
+  background-color: #F9FAF4;
+  background-color: #fffffa;*/
+  background-color: #f8f4f0;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   /* Sets the font size to 16px */
@@ -22,11 +23,18 @@ body {
   /* Sets the line-height to 1.6 * the font-size */
   color: #4a4a4a;
 }
+.bullet-para {
+  font-size: .8em;
+  opacity: .8;
+}
+.caption {
+  font-size: .4em;
+}
 .bullet {
   padding-left: 40px;
 }
 .colorbar.row {
-  background: #fffffa;
+  background: #f8f4f0;
   opacity: 0.8;
   padding: 0px 0px 20px;
   margin-top: -150px;
@@ -35,10 +43,10 @@ body {
   z-index: 3;
 }
 .colorbar-contact.row {
-  background: #fffffa;
+  background: #f8f4f0;
   opacity: 0.8;
   padding: 3px 0px 30px;
-  margin-top: -130px;
+  margin-top: -80px;
   margin-bottom: 10px;
   position: relative;
   z-index: 3;
@@ -62,7 +70,14 @@ footer {
 .logo-icon {
   max-width: 70px;
 }
-
+.icon-fun {
+  max-width: 70px;
+}
+.icon-menu {
+  max-width: 100px;
+  padding-top: 0;
+  margin: 0;
+}
 .copyright {
   font-size: .7em;
   align-content: center;
@@ -79,10 +94,11 @@ h1 {
   font-size: 1.8em;
   font-weight: 700;
   font-family: 'Roboto Slab', serif;
+  text-align: center;
 }
 
 h1.logo {
-  font-size: 6em;
+  font-size: 5em;
   font-weight: 200;
   color: #DF4C73;
   text-align: center;
@@ -108,14 +124,15 @@ h3 {
   font-size: 1em;
   font-weight: 500;
   margin-top: 0;
+  padding-bottom: 5px;
 }
 h3.space {
   font-size: 1em;
   font-weight: 500;
-  padding: 12px 0px 0px;
+  padding: 12px 0px 8px;
 }
 h4 {
-  font-size: .8em;
+  font-size: 1.3em;
   font-weight: 300;
 }
 
@@ -142,6 +159,7 @@ h6 {
 .toolshead {
   margin-left: 90px;
   margin-bottom: 0px;
+  margin-top: 15px;
 }
 
 .sidebar {
@@ -164,7 +182,13 @@ img {
   -webkit-box-shadow: 1px -1px 5px -1px rgba(0, 0, 0, 0.31);
   -moz-box-shadow: 1px -1px 5px -1px rgba(0, 0, 0, 0.31);
 }
-
+#quote {
+  display: inline-block;
+  text-align: left;
+  padding: 20px 100px;
+  font-size: 1.3em;
+color: #DF4C73;
+}
 .resetsize {
   width: auto;
 }
@@ -190,6 +214,10 @@ a {
   text-decoration: none;
   /* No underlining */
 }
+.contact {
+  color: #000000;
+  font-weight: 500;
+}
 
 a:hover {
   color: #DF4C73;
@@ -210,6 +238,9 @@ a:focus {
   /* No underlining */
 }
 
+.icon-tool {
+  max-width: 40px;
+}
 .social-icons {
   color: #4a4a4a;
 }
@@ -247,12 +278,11 @@ nav>ul>li>a:active {
 .button {
   display: block;
   width: 100%;
-  height: 60px;
-  padding: 20px 0 25px;
-  margin: 30px 30px;
+  padding: 16px 0 16px;
+  margin: 15px 15px;
   margin-left: 0px;
   color: #4A4A4A;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 300;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -297,6 +327,10 @@ nav>ul>li>a:active {
 
 .row {
   margin: 30px 0;
+  /* 30px top and bottom, 0 left and right */
+}
+.row-about {
+  margin: 0px 0;
   /* 30px top and bottom, 0 left and right */
 }
 
@@ -387,8 +421,8 @@ nav>ul>li>a:active {
 /* header */
 header {
   /*background-color: #FFF7E2;*/
-  background-color: #fffffa;
-  padding: 8px 0 8px;
+  background-color: #f8f4f0;
+  padding: 0px 0 8px;
   position: fixed;
   /*-webkit-box-shadow: 0px 5px 5px 0px rgba(25, 25, 25, 0.05);
   -moz-box-shadow: 0px 5px 5px 0px rgba(25, 25, 25, 0.05);
@@ -401,6 +435,7 @@ nav>ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  background-color: #f8f4f0;
 }
 
 .navtoggle li .icon {
@@ -430,7 +465,7 @@ nav>ul {
 }
 
 .navtoggle.responsive nav {
-  padding: 24px 0 0;
+  padding: 0;
 }
 
 nav>ul>li>a {
@@ -454,7 +489,8 @@ nav>ul>li>a {
 }
 
 main {
-  padding-top: 44px;
+  padding-top: 140px;
+  margin-bottom: 15px;
 }
 
 .hero-text {
@@ -520,13 +556,16 @@ Small devices (640px and smaller)
     height: 4px;
   }
 
+  .icon-menu {
+    max-width: 35px;
+  }
   .rule {
     height: 4px;
     margin: -4px -20px 20px -20px;
   }
 
   main {
-    padding-top: 15px;
+    padding-top: 55px;
   }
 
   .row {
@@ -558,15 +597,7 @@ Small devices (640px and smaller)
     font-size: 12px;
   }
 
-  .col-md-6 {
-    width: 50%;
-  }
-  .colorbar-contact.row {
-    padding: 0px 0px 30px;
-    margin-top: -200px;
-    margin-bottom: 10px;
 
-  }
   .parent {
   display: grid;
   grid-template-columns: 1fr;
@@ -588,10 +619,12 @@ Medium devices (640px and larger)
 ================================= */
 @media only screen and (min-width: 640px) {
   header {
-    padding: 10px 0 10px;
+    padding: 0 0 10px;
     font-size: 14px;
   }
-
+  .icon-menu {
+    max-width: 70px;
+  }
   nav {
     width: auto;
     margin-top: 0px;
@@ -600,7 +633,7 @@ Medium devices (640px and larger)
   }
 
   nav>ul {
-    margin: 1em 0;
+    margin: 0;
   }
 
   nav>ul>li {
@@ -639,10 +672,12 @@ Medium devices (640px and larger)
     font-size: 18px;
     /* Sets the font size to 18px */
   }
-
+  .colorbar-contact.row {
+    margin-top: -140px;
+  }
   .rule {
     height: 6px;
-    margin: -10px -20px 20px -20px;
+    margin: 0px -20px 20px -20px;
   }
 
   #about-page h3 {
@@ -656,6 +691,7 @@ Medium devices (640px and larger)
 
   .row-reverse [class*="col-"] {
     float: right;
+    padding-top: 0;
   }
 
   .col-center {
@@ -665,13 +701,23 @@ Medium devices (640px and larger)
   }
 
   h1.logo {
-    font-size: 4em;
+    font-size: 3em;
     font-weight: 200;
     margin-bottom: 0;
   }
 }
 
 /* ==END Medium*/
+
+/* ==============================
+Medium devices (920px and larger)
+================================= */
+@media only screen and (min-width: 920px) {
+  .icon-menu {
+    max-width: 85px;
+  }
+}
+
 /* ==============================
 Large devices (1024px or larger)
 ================================= */
@@ -696,7 +742,7 @@ Large devices (1024px or larger)
   }
 
   h1.logo {
-    font-size: 6em;
+    font-size: 5em;
     margin-bottom: 0;
   }
 

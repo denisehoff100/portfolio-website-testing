@@ -54,6 +54,7 @@ body {
 
 p {
   margin-top: 0px;
+  padding-right: 20px;
 }
 
 p.textspaceabove {
@@ -71,7 +72,7 @@ footer {
   max-width: 70px;
 }
 .icon-fun {
-  max-width: 70px;
+  max-width: 50px;
 }
 .icon-menu {
   max-width: 100px;
@@ -129,7 +130,7 @@ h3 {
 h3.space {
   font-size: 1em;
   font-weight: 500;
-  padding: 12px 0px 8px;
+  padding: 16px 0px 8px;
 }
 h4 {
   font-size: 1.3em;
@@ -147,7 +148,7 @@ h6 {
 
 .rule {
   height: 8px;
-  margin: -10px -20px 20px -20px;
+  margin: -10px 0 20px 0;
   padding: 0px;
   background-color: #DF4C73;
 }
@@ -319,7 +320,9 @@ nav>ul>li>a:active {
 .container {
   padding: 0 45px;
 }
-
+.container.row.last-child {
+  border-bottom: 0;
+}
 .about-photo {
   max-width: 200px;
   display: block;
@@ -339,7 +342,7 @@ nav>ul>li>a:active {
   clear: both;
   display: table;
 }
-
+/* START code for 2x2 on index */
 .parent {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -366,6 +369,22 @@ nav>ul>li>a:active {
 .div6 {
   grid-area: 3 / 2 / 4 / 3;
 }
+/* END grid for index */
+
+/* START grid for animation */
+.parent-animation {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 8px;
+grid-row-gap: 0px;
+}
+
+.div1-animation { grid-area: 1 / 1 / 2 / 2; }
+.div2-animation { grid-area: 1 / 2 / 2 / 3; }
+.div3-animation { grid-area: 1 / 3 / 2 / 4; }
+.div4-animation { grid-area: 1 / 4 / 2 / 5; }
+/* END grid for animation */
 
 .imagereveal {
   position: relative;
@@ -389,9 +408,11 @@ nav>ul>li>a:active {
 }
 #work .row {
   padding-bottom: 25px;
-  border-bottom: 1px solid #4a4a4a;
+  border-bottom: 0px solid #4a4a4a;
 }
-
+#work .row:last-child {
+  padding-bottom: 25px;
+}
 #hero h1 {
   text-align: center;
   /* Centers text */
@@ -428,6 +449,7 @@ header {
   -moz-box-shadow: 0px 5px 5px 0px rgba(25, 25, 25, 0.05);
   box-shadow: 0px 5px 5px 0px rgba(25, 25, 25, 0.05);*/
   width: 100%;
+  border-top: 6px;
   z-index: 4;
 }
 
@@ -548,12 +570,11 @@ Small devices (640px and smaller)
   }
 
   header {
-    background-color: #faf7e8;
+    background-color: #f8f4f0;
     -webkit-box-shadow: 0px 0px 0px 0px rgba(25, 25, 25, 0.05);
     -moz-box-shadow: 0px 0px 0px 0px rgba(25, 25, 25, 0.05);
     box-shadow: 0px 0px 0px 0px rgba(25, 25, 25, 0.05);
     padding: 4px 0px 0px;
-    height: 4px;
   }
 
   .icon-menu {
@@ -561,7 +582,7 @@ Small devices (640px and smaller)
   }
   .rule {
     height: 4px;
-    margin: -4px -20px 20px -20px;
+    margin: -4px 0 20px 0;
   }
 
   main {
@@ -573,7 +594,7 @@ Small devices (640px and smaller)
   }
 
   .colorbar.row {
-    margin-top: -60px;
+    margin-top: -100px;
     margin-bottom: 10px;
   }
 
@@ -586,18 +607,21 @@ Small devices (640px and smaller)
   }
 
   h1 {
-    font-size: 18px;
+    font-size: 24px;
   }
 
   h2 {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   h4 {
     font-size: 12px;
   }
 
-
+  #quote {
+    padding: 20px 20px;
+    font-size: .9em;
+  }
   .parent {
   display: grid;
   grid-template-columns: 1fr;

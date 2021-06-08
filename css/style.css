@@ -343,7 +343,7 @@ nav>ul>li>a:active {
 .parent {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 8px;
   grid-row-gap: 2px;
 }
@@ -537,8 +537,8 @@ main {
     width: 100%;
   }
 }
-
 /* end photo uncovering */
+
 /* ==============================
 Small devices (640px and smaller)
 ================================= */
@@ -758,7 +758,12 @@ Large devices (1024px or larger)
 /* ==============================
 X-large devices (1440px or larger)
 ================================= */
-@media only screen and (min-width: 1440px) {}
+@media only screen and (min-width: 1440px) {
+
+}
+
+
+
 
 /* code pen neo blob */
 *,

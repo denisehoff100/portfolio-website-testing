@@ -72,7 +72,9 @@ footer {
   max-width: 70px;
 }
 .icon-fun {
-  max-width: 50px;
+  max-width: 100px;
+  text-align: center;
+
 }
 .icon-menu {
   max-width: 100px;
@@ -296,6 +298,25 @@ nav>ul>li>a:active {
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
 }
+.button-menu {
+  display: block;
+  width: 100%;
+  padding: 4px 8px;
+  margin-left: 16px;
+  color: #4A4A4A;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px solid #DF4C73;
+  border-style: dotted;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
 
 .button:hover {
   border: 1px transparent;
@@ -385,6 +406,24 @@ grid-row-gap: 0px;
 .div3-animation { grid-area: 1 / 3 / 2 / 4; }
 .div4-animation { grid-area: 1 / 4 / 2 / 5; }
 /* END grid for animation */
+/* START grid for about icons */
+.parent-about {
+display: grid;
+grid-template-columns: repeat(6, 1fr);
+grid-template-rows: repeat(4, 1fr);
+grid-column-gap: 30px;
+grid-row-gap: 25px;
+}
+
+.div1-about { grid-area: 1 / 1 / 2 / 2; }
+.div2-about { grid-area: 1 / 2 / 2 / 7; }
+.div3-about { grid-area: 2 / 1 / 3 / 2; }
+.div4-about { grid-area: 2 / 2 / 3 / 7; }
+.div5-about { grid-area: 3 / 1 / 4 / 2; }
+.div6-about { grid-area: 3 / 2 / 4 / 7; }
+.div7-about { grid-area: 4 / 1 / 5 / 2; }
+.div8-about { grid-area: 4 / 2 / 5 / 7; }
+/* END grid for about icons */
 
 .imagereveal {
   position: relative;
